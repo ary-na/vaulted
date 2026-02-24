@@ -1,4 +1,4 @@
-package com.any.quietly.data.local.model
+package com.any.vaulted.data.local.model
 
 import android.app.Notification
 import android.os.Bundle

@@ -2,19 +2,38 @@ package com.any.vaulted.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.any.vaulted.data.local.dao.NotificationDao
-import com.any.vaulted.data.local.entity.NotificationEntity
-import com.any.vaulted.data.local.entity.QuietWindowAppEntity
-import com.any.vaulted.data.local.dao.QuietWindowDao
-import com.any.vaulted.data.local.entity.QuietWindowEntity
+import com.any.vaulted.data.local.dao.VaultDao
+import com.any.vaulted.data.local.dao.VaultHistoryDao
+import com.any.vaulted.data.local.dao.VaultNotificationDao
+import com.any.vaulted.data.local.dao.VaultRuleDao
+import com.any.vaulted.data.local.entity.VaultAppEntity
+import com.any.vaulted.data.local.entity.VaultAppRuleEntity
+import com.any.vaulted.data.local.entity.VaultBatchRuleEntity
+import com.any.vaulted.data.local.entity.VaultEntity
+import com.any.vaulted.data.local.entity.VaultHistoryEntity
+import com.any.vaulted.data.local.entity.VaultNotificationEntity
+import com.any.vaulted.data.local.entity.VaultRecurringRuleEntity
+import com.any.vaulted.data.local.entity.VaultRuleEntity
+import com.any.vaulted.data.local.entity.VaultTimeRuleEntity
 
 @Database(
-    entities = [NotificationEntity::class, VaultEntity::class, QuietWindowAppEntity::class],
-    version = 6,
+    entities = [
+        VaultEntity::class,
+        VaultAppEntity::class,
+        VaultRuleEntity::class,
+        VaultBatchRuleEntity::class,
+        VaultTimeRuleEntity::class,
+        VaultRecurringRuleEntity::class,
+        VaultHistoryEntity::class,
+        VaultNotificationEntity::class,
+        VaultAppRuleEntity::class
+    ],
+    version = 9,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
-
-    abstract fun notificationDao(): NotificationDao
-    abstract fun quietWindowDao(): QuietWindowDao
+    abstract fun vaultDao(): VaultDao
+    abstract fun vaultNotificationDao(): VaultNotificationDao
+    abstract fun vaultRuleDao(): VaultRuleDao
+    abstract fun vaultHistoryDao(): VaultHistoryDao
 }

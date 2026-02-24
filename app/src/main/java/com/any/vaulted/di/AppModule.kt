@@ -22,9 +22,11 @@ val appModule = module {
         )
             .build()
     }
-    single { get<AppDatabase>().notificationDao() }
-    single { get<AppDatabase>().quietWindowDao() }
-    single<NotificationRepository> { RoomNotificationRepository(get(), get()) }
+    single { get<AppDatabase>().vaultNotificationDao() }
+    single { get<AppDatabase>().vaultDao() }
+    single { get<AppDatabase>().vaultRuleDao() }
+    single { get<AppDatabase>().vaultHistoryDao() }
+    single<NotificationRepository> { RoomNotificationRepository(get(), get(), get(), get()) }
     single { GeminiNotificationSummarizer() }
     single { NotificationHelper(androidContext()) }
     single<NotificationLogger> { DatabaseNotificationLogger(get()) }
