@@ -4,6 +4,7 @@ import com.any.vaulted.data.local.dao.VaultHistoryDao
 import com.any.vaulted.data.local.entity.VaultHistoryEntity
 import com.any.vaulted.data.local.model.VaultHistory
 
+
 class RoomVaultHistoryRepository(
     private val vaultHistoryDao: VaultHistoryDao
 ) : VaultHistoryRepository {
